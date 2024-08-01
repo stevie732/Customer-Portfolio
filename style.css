@@ -92,7 +92,6 @@ body {
     transform: translateZ(10px);
 }
 
-
 section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -136,7 +135,6 @@ section {
 #home h1:hover::after, #about h2:hover::after, #skills h2:hover::after, #projects h2:hover::after, #contact h2:hover::after {
     transform: scaleX(1);
 }
-
 
 .hero {
     position: relative;
@@ -192,7 +190,6 @@ section {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-
 #about p {
     position: relative;
     font-size: 1.1rem;
@@ -229,7 +226,6 @@ section {
 #about p:hover {
     animation: textPop 0.5s ease;
 }
-
 
 #skills .card {
     transition: all 0.3s ease;
@@ -281,7 +277,6 @@ section {
 #skills .card:hover {
     animation: skillsPop 0.5s ease;
 }
-
 
 .card {
     transition: transform 0.3s ease;
