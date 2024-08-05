@@ -6,9 +6,15 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    background: linear-gradient(45deg, #007bff, #00bcd4);
     background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
 }
 
 .navbar {
@@ -104,6 +110,7 @@ section {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
+    animation: titlePop 2s ease infinite;
 }
 
 #home h1:hover, #about h2:hover, #skills h2:hover, #projects h2:hover, #contact h2:hover {
@@ -115,11 +122,6 @@ section {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
-
-#home h1, #about h2, #skills h2, #projects h2, #contact h2 {
-    animation: titlePop 2s ease infinite;
-}
-
 #home h1::after, #about h2::after, #skills h2::after, #projects h2::after, #contact h2::after {
     content: '';
     position: absolute;
@@ -134,14 +136,6 @@ section {
 
 #home h1:hover::after, #about h2:hover::after, #skills h2:hover::after, #projects h2:hover::after, #contact h2:hover::after {
     transform: scaleX(1);
-}
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(45deg, #007bff, #00bcd4);
-    transform-style: preserve-3d;
-    perspective: 1000px;
 }
 
 .hero::before {
@@ -206,6 +200,7 @@ section {
 #about p:hover {
     transform: perspective(1000px) rotateX(5deg) translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: textPop 0.5s ease;
 }
 
 #about p::first-letter {
@@ -222,11 +217,6 @@ section {
     50% { transform: scale(1.02); }
     100% { transform: scale(1); }
 }
-
-#about p:hover {
-    animation: textPop 0.5s ease;
-}
-
 #skills .card {
     transition: all 0.3s ease;
     transform: perspective(1000px) rotateY(0deg);
@@ -240,6 +230,8 @@ section {
 #skills .card:hover {
     transform: perspective(1000px) rotateY(10deg) translateY(-10px);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    animation: skillsPop 0.5s ease;
+    opacity: 0.8
 }
 
 #skills .card-body {
@@ -262,9 +254,6 @@ section {
     font-size: 1rem;
     color: #555;
     transition: opacity 0.3s;
-}
-
-#skills .card:hover .card-text {
     opacity: 0.8;
 }
 
@@ -272,10 +261,6 @@ section {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
-}
-
-#skills .card:hover {
-    animation: skillsPop 0.5s ease;
 }
 
 .card {
@@ -385,4 +370,90 @@ section {
 
 .social-icons a:hover i {
     color: #007bff;
+}
+
+/* ----------------------------- Next.html ---------------------------------------------------- */
+
+/* Style the challenges */
+.challenge-img {
+    transition: transform 0.3s ease; /* Add a transition effect */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.challenge-img:hover {
+    transform: scale(1.1); /* Make the image slightly larger on hover */
+}
+
+/* Style the popups */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #f1f1f1;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+/* Popup image */
+.popup img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Carousel style */
+
+#projectCarousel .carousel-item img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.popout-carousel {
+    position: relative; /* Ensures the carousel has positioning */
+    z-index: 2; /* Places it above other content */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Adds a pronounced shadow */
+    transform: translate(20px); /* Simulates depth with a slight forward shift */
+    transition: transform 0.3s ease; /* Adds a sm[th transition for hover effects */
+}
+
+.popout-carousel:hover {
+    transform: translateZ(40px) scale(1.05); /* Enhances the effect on hover */
+}
+
+#projectstuff h2, #solutions h2 {
+    position: relative;
+    font-size: 3rem;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+}
+
+#projectstuff h3, #solutions h3 {
+    position: relative;
+    font-size: 2rem;
+    color: #0056b3;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+}
+
+#projectstuff p {
+    position: relative;
+    font-size: 1.1rem;
+}
+
+#projectstuff li, #solutions li {
+    font-size: 1.1rem;
 }
